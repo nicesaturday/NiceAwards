@@ -1,0 +1,5 @@
+mixin music(music)
+   div#audio__control(data-id=music._id)  
+    h3=music.title
+    audio(controls, data-id=music.counter)
+     source(src="/"+music.fileUrl,type="audio/mpeg")

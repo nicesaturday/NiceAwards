@@ -1,0 +1,10 @@
+extends base
+include mixins/mixin
+
+block content
+    div#Control_Center
+     each potato in music 
+      +music(potato)
+    script(src="/static/js/musicHandle.js")     
+block scripts 
+  
