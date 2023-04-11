@@ -1,10 +1,12 @@
 extends base
-include mixins/mixin
+include mixins/musicMixin
 
 block content
+    form(method="POST", action="/search")
+      input(type="text" id="searched" placeholder="검색" name="search")  
     div#Control_Center
      each potato in music 
-      +music(potato)
-    script(src="/static/js/musicHandle.js")     
+      +music(potato)   
+    script(src="/static/js/musicHandle.js")    
 block scripts 
-  
+    

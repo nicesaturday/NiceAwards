@@ -1,0 +1,15 @@
+extends base
+
+
+block content
+ h4 계정을 생성하세요
+   if errorMessage 
+    span=errorMessage
+   form(method="POST")
+      input(type="text" , required , placeholder="USERNAME" , name="username")
+      input(type="text" , required , placeholder="PASSWORD" , name="password")
+      input(type="text" , required , placeholder="PASSWORDCHECK" , name="password2")
+      input(type="text" , required , placeholder="NAME" , name="name")
+      input(type="text" , required , placeholder="EMAIL" , name="email")
+      input(type="text" , required , placeholder="LOCATION" , name="location")
+      input(type="submit", value="Join")

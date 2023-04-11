@@ -114,29 +114,28 @@ var viewAdd = /*#__PURE__*/function () {
         switch (_context3.prev = _context3.next) {
           case 0:
             id = req.params.id;
-            console.log(id, "sex");
-            _context3.next = 4;
+            _context3.next = 3;
             return _Song["default"].findById(id);
 
-          case 4:
+          case 3:
             music = _context3.sent;
 
             if (music) {
-              _context3.next = 7;
+              _context3.next = 6;
               break;
             }
 
             return _context3.abrupt("return", res.sendStatus(404));
 
-          case 7:
+          case 6:
             music.meta.views = music.meta.views + 1;
-            _context3.next = 10;
+            _context3.next = 9;
             return music.save();
 
-          case 10:
+          case 9:
             return _context3.abrupt("return", res.sendStatus(200));
 
-          case 11:
+          case 10:
           case "end":
             return _context3.stop();
         }

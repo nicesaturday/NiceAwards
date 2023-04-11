@@ -1,5 +1,5 @@
 mixin music(music)
    div#audio__control(data-id=music._id)  
-    h3=music.title
-    audio(controls, data-id=music.counter)
+    a(href=`/${music._id}`)=music.title
+    audio(controls)
      source(src="/"+music.fileUrl,type="audio/mpeg")

@@ -1,0 +1,12 @@
+extends base
+
+block content
+  h4 계정 수정
+   if errorMessage 
+    span=errorMessage
+   form(method="POST")
+      input(type="text" , placeholder="USERNAME" , value=loggedInUser.username ,name="username")
+      input(type="text" , placeholder="NAME" , value=loggedInUser.name , name="name")
+      input(type="text" , placeholder="EMAIL" , value=loggedInUser.email  ,name="email")
+      input(type="text" , placeholder="LOCATION" , value=loggedInUser.location , name="location")
+      input(type="submit", value="Change User Info")

@@ -1,0 +1,8 @@
+extends base
+
+block content
+ if String(music.owner) == String(loggedInUser._id)
+  div#songId(data-Id=music._id)
+   a#deleteSong(href=`${music._id}/delete`) 음악 삭제
+
+  

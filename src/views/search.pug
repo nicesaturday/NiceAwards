@@ -1,0 +1,8 @@
+extends base
+include mixins/mixin
+
+block content
+ form(method="POST", action="/search")
+      input(type="text" id="searched" placeholder="검색" name="search")  
+ each potato in music
+   +music(potato)

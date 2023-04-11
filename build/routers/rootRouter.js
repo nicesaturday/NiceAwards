@@ -11,6 +11,8 @@ var _songController = require("../controllers/songController");
 
 var _middlewares = require("../middlewares");
 
+var _userController = require("../controllers/userController");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var rootRouter = _express["default"].Router();
@@ -23,5 +25,6 @@ rootRouter.route("/upload").get(_songController.getUpload).post(_middlewares.upl
   name: "image",
   maxCount: 1
 }]), _songController.postUpload);
+rootRouter.route("/login").get(_userController.getLogin).post(_userController.postLogin);
 var _default = rootRouter;
 exports["default"] = _default;

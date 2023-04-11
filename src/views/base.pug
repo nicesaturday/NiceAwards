@@ -9,7 +9,13 @@ html(lang="ko")
         include partials/header                
         main
          a(href="/") Home
-         a(href="/upload") upload
-            block content
+         if loggedIn
+          a(href="/users/logout") 로그아웃
+          a(href="/upload") Upload
+          a(href=`/users/profile/${loggedInUser._id}`) #{loggedInUser.name}
+         else
+          a(href="/login") Login   
+    block content
         include partials/footer
     block scripts
+        

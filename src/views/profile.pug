@@ -1,0 +1,7 @@
+extends base
+include mixins/userMixin
+
+block content
+  each potato in user 
+   +user(potato)
+  a(href=`/users/profile/${loggedInUser._id}/edit`) 프로필 변경하기
