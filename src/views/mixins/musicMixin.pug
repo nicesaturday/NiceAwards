@@ -1,5 +1,10 @@
 mixin music(music)
    div#audio__control(data-id=music._id)  
     a(href=`/${music._id}`)=music.title
-    audio(controls)
-     source(src="/"+music.fileUrl,type="audio/mpeg")
+
+
+    if loggedIn
+      if  loggedInUser.playlist.includes(music.id) == false
+       c#whiteHeart 🤍 
+      else 
+       b#redHeart 💗

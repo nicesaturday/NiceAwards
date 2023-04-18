@@ -1,0 +1,13 @@
+extends base
+include mixins/listMixin
+
+block content
+    form(method="POST", action="/search")
+      input(type="text" id="searched" placeholder="검색" name="search")  
+    div#comend 
+     div#play_center
+     div#Control_Center
+      each potato in user.playlist 
+       +list(potato)   
+    script(src="/static/js/musicHandle.js")   
+

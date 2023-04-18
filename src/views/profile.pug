@@ -4,4 +4,7 @@ include mixins/userMixin
 block content
   each potato in user 
    +user(potato)
-  a(href=`/users/profile/${loggedInUser._id}/edit`) 프로필 변경하기
+  if String(loggedInUser.id) == String(user.id)
+   a(href=`/users/profile/${loggedInUser._id}/edit`) 프로필 변경하기
+   br
+   a(href=`/users/profile/${loggedInUser._id}/playlist`)  플레이리스트

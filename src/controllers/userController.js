@@ -1,6 +1,7 @@
 import User from "../models/User";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
+import { ObjectId } from "mongoose";
 
 export const getLogin = (req,res) => {
     return res.render("login",{pageTitle:"login"});
@@ -162,4 +163,39 @@ export const editPostProfile = async (req,res) => {
     await User.findByIdAndUpdate(_id,{location},{new:true})
     }
     return res.redirect("/");
+}
+
+export const addHeart = async (req,res) => {
+    const {id} = req.params;
+    const {_id} = req.session.user;
+    const user = await User.findById(_id);
+    if (!user) {
+        return sendStatus(404);
+    };
+    user.playlist.push(id);
+    user.save();
+    req.session.user.playlist.push(id);
+    req.session.save(); 
+
+    return res.sendStatus(200)
+}
+
+export const deleteHeart = async (req,res) => {
+    const {id} = req.params;
+    const {_id} = req.session.user;
+    const user = await User.findById(_id);
+    if (!user) {
+        return sendStatus(404);
+    };
+    function v(e) {
+        if(e != id) {
+            return true
+        }
+    }
+    const play = user.playlist.filter(v);
+    user.playlist = play;
+    user.save();
+    req.session.user.playlist = play
+    req.session.save();
+    return res.sendStatus(200)
 }

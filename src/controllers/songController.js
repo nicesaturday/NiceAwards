@@ -61,9 +61,10 @@ export const search = async (req,res) => {
 export const musicInfo = async (req,res) => {
   const {id} = req.params;
   console.log(id)
-  const music = await Song.findById(id)
-  console.log(music)
-  return res.render("musicInfo",{pageTitle:music.title,music})
+  const music = await Song.find({}).sort({"meta.views":-1});
+  const music2 = await Song.findById(id)
+  console.log(music2)
+  return res.render("musicInfo",{pageTitle:music2.title,music,music2})
 }
 
 export const musicDelete = async (req,res) => {
@@ -84,4 +85,24 @@ export const musicDelete = async (req,res) => {
       return res.redirect("/");
     }
   })
+}
+
+export const playlist = async (req,res) => {
+  const {id} = req.params;
+  const music = await Song.find({}).sort({"meta.views":-1});
+  const user = await User.findById(id).populate("playlist");
+  
+  return res.render("playlist", {pageTitle: "Playlist", user,music})
+}
+
+export const playlist_list = async (req,res) => {
+  const {id} = req.params;
+  console.log(id)
+  const userId = req.session.user._id;
+  const music2 = await Song.findById(id);
+  const user = await User.findById(userId).populate("playlist");
+  console.log(user.playlist);
+ 
+    return res.render("playlist_list",{pageTitle: music2.title, user,music2})
+  
 }

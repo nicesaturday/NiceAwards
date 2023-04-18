@@ -1,8 +1,9 @@
 extends base
-include mixins/mixin
+include mixins/musicMixin
 
 block content
  form(method="POST", action="/search")
       input(type="text" id="searched" placeholder="검색" name="search")  
- each potato in music
-   +music(potato)
+ div#Control_Center     
+  each potato in music
+    +music(potato)

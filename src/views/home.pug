@@ -4,9 +4,14 @@ include mixins/musicMixin
 block content
     form(method="POST", action="/search")
       input(type="text" id="searched" placeholder="검색" name="search")  
-    div#Control_Center
-     each potato in music 
-      +music(potato)   
+    div#realComend
+     div#comend 
+      div#play_center
+       audio()
+        source(src="/"+music.fileUrl,type="audio/mpeg")
+      div#Control_Center
+       each potato in music 
+        +music(potato)   
     script(src="/static/js/musicHandle.js")    
 block scripts 
     

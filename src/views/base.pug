@@ -1,5 +1,6 @@
 doctype html
 html(lang="ko")
+d#allimage
     head
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
@@ -10,9 +11,9 @@ html(lang="ko")
         main
          a(href="/") Home
          if loggedIn
-          a(href="/users/logout") 로그아웃
           a(href="/upload") Upload
           a(href=`/users/profile/${loggedInUser._id}`) #{loggedInUser.name}
+          a(href="/users/logout") 로그아웃
          else
           a(href="/login") Login   
     block content

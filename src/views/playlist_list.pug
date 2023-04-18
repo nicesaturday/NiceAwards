@@ -1,9 +1,9 @@
 extends base
-include mixins/musicMixin
+include mixins/listMixin
 
 block content
     form(method="POST", action="/search")
-      input(type="text" id="searched" placeholder="검색" name="search")  
+      input(type="text" id="searched" placeholder="검색" name="search")
     div#realComend  
      div#comend 
       div#play_center(data-Fd=music2._id)
@@ -20,13 +20,6 @@ block content
        div 
         input(type="range",name="range", value="0", min="0",step="1" )#timeline
       div#Control_Center
-       each potato in music 
-        +music(potato)   
+       each potato in user.playlist 
+        +list(potato)   
     script(src="/static/js/musicHandle.js")   
-
-    if loggedIn
-     if String(music2.owner) == String(loggedInUser._id)
-      div#songId
-       a#deleteSong(href=`${music2._id}/delete`) 내 음악 삭제하기
-
-  

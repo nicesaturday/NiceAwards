@@ -1,0 +1,10 @@
+mixin list(list)
+ div#audio__controler(data-id=list.id)
+  a(href=`/users/playList/${list._id}`)=list.title
+
+
+  if loggedIn
+    if  loggedInUser.playlist.includes(list.id) == false
+       c#whiteHeart 🤍 
+    else 
+       b#redHeart 💗
