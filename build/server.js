@@ -21,6 +21,8 @@ var _rootRouter = _interopRequireDefault(require("./routers/rootRouter"));
 
 var _apiRouter = _interopRequireDefault(require("./routers/apiRouter"));
 
+var _userRouter = _interopRequireDefault(require("./routers/userRouter"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var app = (0, _express["default"])();
@@ -35,7 +37,11 @@ app.use(_express["default"].json());
 app.use((0, _expressSession["default"])({
   secret: process.env.COOKIE_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 600000
+  },
+  rolling: true,
   store: _connectMongo["default"].create({
     mongoUrl: process.env.DB_URL
   })
@@ -46,5 +52,6 @@ app.use("/uploads", _express["default"]["static"]("uploads"));
 app.use("/static", _express["default"]["static"]("assets"));
 app.use("/", _rootRouter["default"]);
 app.use("/api", _apiRouter["default"]);
+app.use("/users", _userRouter["default"]);
 var _default = app;
 exports["default"] = _default;

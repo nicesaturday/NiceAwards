@@ -23,15 +23,177 @@ main{
     font-family: "DynaPuff";
     font-weight: 700;
     color: deeppink;
+    text-decoration: none;
+  }
+}
+#deleteSong{
+  font-family: "DynaPuff";
+  color: black;
+  text-decoration: none;
+  border-color: deeppink;
+  border-inline-width: 2px;
+  background-color: deeppink;
+  box-shadow: 5px 5px 5px;
+  border-radius: 5px;
+}
+#searchCenter {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  #audio__control {
+    font-family: "DynaPuff";
+    background-color: deeppink;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+}
+#logg{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  input{
+    font-family: "DynaPuff";
+    background-color: deeppink;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+  a{
+    font-family: "DynaPuff";
+    background-color: deeppink;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+  #logsub{
+    cursor: pointer;
+    border:none;
+    background-color: #0982f0;
+    &:focus{
+      border-color:#0982f0;
+      outline: none;
+      color: #0083cb;
+
+    }
+  }
+}
+h4{
+  
+  font-family: "DynaPuff";
+ 
+}
+#account{
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  span{
+    font-family: "DynaPuff";
+    background-color: yellow;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+  a{
+    font-family: "DynaPuff";
+    background-color: deeppink;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+}
+#joinn{
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  input{
+    font-family: "DynaPuff";
+    background-color: deeppink;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+}
+#formm {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  label{
+    font-family: "DynaPuff";
+    background-color: rgba(139, 255, 93, 0.756);
+    border-color: rgba(139, 255, 93, 0.756);
+    box-shadow: 5px 5px 5px;
+  }
+  input{
+    font-family: "DynaPuff";
+    background-color: deeppink;
+    border-color: deeppink;
+    box-shadow: 5px 5px 5px;
+  }
+  #uploadSub{
+    cursor: pointer;
+    border:none;
+    background-color: #0982f0;
+    &:focus{
+      border-color:#0982f0;
+      outline: none;
+      color: #0083cb;
+    }
+  }
+}
+#playplay{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  a{
+    font-size: 50px;
+    font-family: "DynaPuff";
+    text-decoration: none;
   }
 }
 
-#searched{
- 
-  width: 99.5%;
- 
+#audio__controler{
+  font-size: 50px;
+  
 }
-
+#searchh{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+ 
+#searched{
+  opacity: 1;
+  font-family: "DynaPuff";
+    background-color: #cedee0;
+    margin-bottom: 10px;
+    border-color: deeppink;
+    box-shadow: 3px 3px 3px 3px;
+  width: 100%;
+  border:none;
+  #searched:focus{
+    border: 2px;
+    border-color:#0982f0;
+    outline: none;
+    color: black;
+  }
+}
+  }
 #allimage{
   
   background-image: url("https://images.wallpaperscraft.com/image/single/child_river_dreams_127495_1280x1024.jpg");
@@ -51,6 +213,7 @@ html,body {
   position: relative;
   z-index: 1;
   #realComend{
+    padding-top: 10px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -67,11 +230,23 @@ html,body {
     gap: 10px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(10 , minmax(100px,auto));
+    grid-template-rows: repeat(10 , minmax(auto,auto));
     justify-content: space-between;
     width: 100%;
     height: 100%;
+    #audio__controler{
+      color: blue;
+      font-family:"DynaPuff";
+      text-decoration: none;
+      background-color:coral;
+      box-shadow: 5px 5px 5px;
+      a{
+        color: blue;
+        text-decoration: none;
+      }
+    }
   #audio__control{
+    font-family:"DynaPuff";
     box-shadow: 5px 5px 5px;
     clear:both;
     flex:auto;
@@ -80,7 +255,7 @@ html,body {
     counter-increment: section;
     height: 50px;
     object-fit: cover;
-    background-color: beige;
+    background-color: deeppink;
     a {
       color: inherit;
       text-decoration: none;
@@ -115,9 +290,34 @@ html,body {
     display: flex;
     align-items: flex-end;
     height: 100%;
+    padding-left: 10px;
     #play{
-      font-size: 50px;
+      width: 75px;
+      height: 75px;
+      background: rgb(247,150,192);
+      margin-bottom: 10px;
+      display: inline-block;
+      outline: 0;
+      border:0;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      color: rgb(247,150,192);;
+      background: #fff;
+      line-height: 30px;
+      border-radius: 40px;
+      padding: 20px;
+      font-size: 25px;
+      font-weight: 600;
+      box-shadow: rgb(255, 198, 0) -2px -2px 0px 2px, rgb(246, 84, 174) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+      transition: all 0.2s;
+      &:hover{
+          box-shadow: rgb(246, 84, 174) -2px -2px 0px 2px, rgb(255, 198, 0) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+          transform: scale(1.01);
+      }
+      
     }
+    
   }
   position: relative;
   height: 100%;

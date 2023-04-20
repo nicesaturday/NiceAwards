@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     password:{type:String},
     name: {type:String, required:true},
     location: {type:String},
-    playlist:[{type:mongoose.Schema.Types.ObjectId ,unique:true, required:true, ref:"Song"}],
+    playlist:[{type:mongoose.Schema.Types.ObjectId ,unique:true, ref:"Song"}],
 });
 
 userSchema.pre('save', async function() {

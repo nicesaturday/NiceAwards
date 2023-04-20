@@ -2,10 +2,10 @@ extends base
 
 
 block content
- h4 계정을 생성하세요
+   h4 create a account
    if errorMessage 
     span=errorMessage
-   form(method="POST")
+   form(method="POST", id="joinn")
       input(type="text" , required , placeholder="USERNAME" , name="username")
       input(type="text" , required , placeholder="PASSWORD" , name="password")
       input(type="text" , required , placeholder="PASSWORDCHECK" , name="password2")

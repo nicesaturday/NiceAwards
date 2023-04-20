@@ -15,8 +15,6 @@ const playBtn = document.getElementById("play");
 const muteBtn = document.getElementById("mute");
 
 
-let volumeValue = 0.5;
-audio.volume = volumeValue;
 
 const endHandler = (e) => {
     const {fd} = e.srcElement.parentElement.dataset;
@@ -26,10 +24,10 @@ const endHandler = (e) => {
 
 }
 
-
+if (audio){
 audio.addEventListener("ended",(e) =>endHandler(e))
     
-
+}
 const clickWhite = (e) => {
     const {id} = e.srcElement.parentElement.dataset;
     const p = e.srcElement.parentElement;
@@ -83,46 +81,16 @@ const handlePlayClick = () => {
 }
 
 
-const handlePlay = () => {playBtn.innerText = "⏸"}
+const handlePlay = () => {playBtn.innerText = "||"}
 const handlePause = () => {playBtn.innerText = "▶"}
 
 
 
-const handleVolumeChange = (event) => {
-    const {target: {value}} = event;
-    if (audio.muted) {
-        audio.muted = false;
-    }
-    volumeValue = value;
-    audio.volume = value;
-    console.log(value);
-}
-
-const formatTime = (seconds) => 
-   new Date(seconds*1000).toISOString().substring(13,19);
 
 
-const handleTimeUpdate = (event) => {
-    currenTime.innerText = formatTime(Math.floor(audio.currentTime));
-    timeline.value = Math.floor(audio.currentTime);
-}
 
-const handleTimelineChange = (event) => {
-    const {target:{value}} = event;
-    audio.currentTime = value;
-}
-
+if(playBtn, audio){
 playBtn.addEventListener("click",handlePlayClick);
 audio.addEventListener("pause",handlePause)
 audio.addEventListener("play",handlePlay)
-volumeRange.addEventListener("input",handleVolumeChange)
-audio.addEventListener("loadedmetadata",handleLoadedMetadata);
-if (audio.readyState >= 2){
-    handleLoadedMetadata();
- }
- function handleLoadedMetadata() {
-     totalTime.innerText = formatTime(Math.floor(audio.duration));
-     timeline.max = Math.floor(audio.duration);
-     console.log(audio.duration);}
-audio.addEventListener("timeupdate",handleTimeUpdate);
-timeline.addEventListener("input", handleTimelineChange);
+}

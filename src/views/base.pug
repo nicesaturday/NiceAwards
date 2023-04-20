@@ -5,15 +5,15 @@ d#allimage
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
         link(rel="stylesheet", href="/static/css/styles.css")
-        link(rel="icon" href="data:;base64,iVBORw0KGgo=")
+        link(rel="shorcut icon" href="#", type="image/x-icon")
     body
         include partials/header                
         main
-         a(href="/") Home
+         a(href="https://pink-melon.fly.dev/") 🍈
          if loggedIn
           a(href="/upload") Upload
           a(href=`/users/profile/${loggedInUser._id}`) #{loggedInUser.name}
-          a(href="/users/logout") 로그아웃
+          a(href="/users/logout") Log out
          else
           a(href="/login") Login   
     block content

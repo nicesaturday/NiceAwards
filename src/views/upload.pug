@@ -4,12 +4,12 @@ extends base
 block content
    if errorMessage
      span=errorMessage 
-   form(method="POST" , enctype="multipart/form-data", id="form")
+   form(method="POST" , enctype="multipart/form-data", id="formm")
      label(for="music") Music File
      input(type="file", accept="mp4/*", required, name="music" , id="music")
      label(for="image") image File
      input(type="file", accept="image/*", required, name="image" , id="image")
      input(type="text" , placeholder="title", required,name="title", id="title")
-     input(type="submit", value="Upload Music")
+     input(type="submit", value="Upload Music 🥇",id="uploadSub") 
 block scripts 
   script(src="/static/js/main.js")

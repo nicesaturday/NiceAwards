@@ -28,6 +28,7 @@ export const getJoin = (req,res) => {
 
 export const postJoin = async (req,res) => {
     const {username,password,password2,name,email,location} = req.body;
+    console.log(username,password,password2,name,email,location)
     const usernameExists = await User.exists({username})
     if (usernameExists) {
         return res.status(400).render("login",{pageTitle:"login", errorMessage:"이미 다른 사용자가 사용중인 name 입니다."});
@@ -47,10 +48,11 @@ export const postJoin = async (req,res) => {
         email,
         location
     })
-}catch{
-    return res.status(400).render("/login", {pageTitle: "Login" , errorMessage: error._message}); 
-}
     return res.redirect("/login");
+}catch (error){
+    console.log(error)
+    return res.status(400).render("join", {pageTitle: "join" , errorMessage: error._message}); 
+}
 }
 
 export const startGithubLogin = (req,res) => {

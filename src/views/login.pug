@@ -4,13 +4,13 @@ block content
 
    if errorMessage
      span=errorMessage
-   form(method="POST")
+   form(method="POST",id="logg")
       input(type="text" , required , placeholder="Name" , name="username")
       input(type="text" , required , placeholder="PASSWORD", name="password")
-      input(type="submit", value="Login")
+      input(type="submit", value="Login", id="logsub")
       br
-      a(href="/users/github/start") 깃허브로 로그인
+      a(href="/users/github/start") ✨Login with Github
    hr
-   div 
-      span 계정이 없으십니까?
-      a(href="/join") 계정 만들기 
+   div#account
+      span Do not have a account?
+      a(href="/join") create a account 💫

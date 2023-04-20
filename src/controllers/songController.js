@@ -18,12 +18,13 @@ export const postUpload = async (req,res) => {
   console.log(music,image);
   console.log(req.body);
   try{
-    await Song.create({
+    const song = await Song.create({
       title,
-      fileUrl: music[0].path.replace(/[\\]/g,"/") ,
-      thumbUrl: image[0].path.replace(/[\\]/g,"/"),
+      fileUrl: music[0].location ,
+      thumbUrl: image[0].location,
       owner: _id
     })
+    console.log(song);
     return res.redirect("/");
   } catch(error){
     console.log(error)
